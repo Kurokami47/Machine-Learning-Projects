@@ -14,7 +14,14 @@ jobs:
       # Check-out your repository.
       - name: Checkout
         uses: actions/checkout@v2
+<<<<<<< HEAD
         
+=======
+      - uses: actions/setup-node@v3
+          with:
+          node-version: '16'
+      - run: npm install -g bats
+>>>>>>> 3cd7f342b7220261939e2fff4a2cbc50e77546f5
 
 
 ### ⬇ IMPORTANT PART ⬇ ###
