@@ -19,7 +19,7 @@ def get_requirements_list() -> List[str]:
 
 setup(
 name=PROJECT_NAME,
-version=VERSION,  # type: ignore
+version=VERSION,
 author=AUTHOR,
 description=DESRCIPTION,
 packages=find_packages(),
