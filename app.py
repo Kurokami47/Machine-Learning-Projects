@@ -1,5 +1,4 @@
 import sys
-
 from flask import Flask
 
 from housing.exception import housingexception
