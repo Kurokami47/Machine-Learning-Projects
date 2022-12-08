@@ -15,7 +15,7 @@ class DataIngestion:
     def __init__(self, data_ingestion_config:DataIngestionConfig ):
         try:
             logging.info(f"{'='*20}Data Ingestion log started {'='*20}")
-            self.data_ingestion_config = DataIngestionConfig
+            self.data_ingestion_config = data_ingestion_config
         except Exception as e:
             raise housingexception(e,sys) from e
 
@@ -34,6 +34,7 @@ class DataIngestion:
             tgz_file_path = os.path.join(tgz_download_dir, housing_file_name)
 
             logging.info(f"Downloading file from :[{download_url}] into :[{tgz_file_path}]")
+
             urllib.request.urlretrieve(download_url, tgz_file_path)
             
             logging.info(f"File :[{tgz_file_path}] has been downloaded successfully.")
@@ -43,12 +44,12 @@ class DataIngestion:
             raise housingexception(e,sys) from e 
 
 
-    def extract_tgz_file(Self):
+    def extract_tgz_file(self,tgz_file_path:str):
         try:
             raw_data_dir = self.data_ingestion_config.raw_data_dir
 
-            if os.path.exists(raw_data_dir):
-                os.remove(raw_data_dir)
+            #if os.path.exists(raw_data_dir):
+                #os.remove(raw_data_dir)
 
             os.makedirs(raw_data_dir,exist_ok=True)
 

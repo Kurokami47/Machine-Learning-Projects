@@ -1,7 +1,7 @@
-Flask
+flask
 gunicorn
 pandas
-sklearn
+scikit-learn
 numpy
 PyYAML
 -e .
