@@ -1,12 +1,12 @@
 from housing.config.configuration import Configuration
 from housing.logger import logging
 from housing.exception import housingexception
-
 from housing.entity.artifact_entity import DataValidationArtifact
 from housing.entity.artifact_entity import DataIngestionArtifact
 from housing.entity.config_entity import DataIngestionConfig
 from housing.component.data_ingestion import DataIngestion
 from housing.component.data_validation import DataValidation
+from housing.component.data_transformation import DataTransformation
 import os,sys
 
 class Pipeline:

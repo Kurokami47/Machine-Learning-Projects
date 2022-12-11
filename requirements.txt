@@ -5,3 +5,5 @@ scikit-learn
 numpy
 PyYAML
 evidently
+dill
+-e .
