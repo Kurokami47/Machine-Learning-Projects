@@ -1,6 +1,6 @@
 from cgi import test
 from sklearn import preprocessing
-from housing.exception import housingexception
+from housing.exception import HousingException
 from housing.logger import logging
 from housing.entity.config_entity import DataTransformationConfig 
 from housing.entity.artifact_entity import DataIngestionArtifact,\
@@ -59,7 +59,7 @@ class FeatureGenerator(BaseEstimator, TransformerMixin):
             self.households_ix = households_ix
             self.total_bedrooms_ix = total_bedrooms_ix
         except Exception as e:
-            raise housingexception(e, sys) from e
+            raise HousingException(e, sys) from e
 
     def fit(self, X, y=None):
         return self
@@ -81,7 +81,7 @@ class FeatureGenerator(BaseEstimator, TransformerMixin):
 
             return generated_feature
         except Exception as e:
-            raise housingexception(e, sys) from e
+            raise HousingException(e, sys) from e
 
 
 
@@ -100,7 +100,7 @@ class DataTransformation:
             self.data_validation_artifact = data_validation_artifact
 
         except Exception as e:
-            raise housingexception(e,sys) from e
+            raise HousingException(e,sys) from e
 
     
 
@@ -142,7 +142,7 @@ class DataTransformation:
             return preprocessing
 
         except Exception as e:
-            raise housingexception(e,sys) from e   
+            raise HousingException(e,sys) from e   
 
 
     def initiate_data_transformation(self)->DataTransformationArtifact:
@@ -214,7 +214,7 @@ class DataTransformation:
             logging.info(f"Data transformationa artifact: {data_transformation_artifact}")
             return data_transformation_artifact
         except Exception as e:
-            raise housingexception(e,sys) from e
+            raise HousingException(e,sys) from e
 
     def __del__(self):
         logging.info(f"{'>>'*30}Data Transformation log completed.{'<<'*30} \n\n")
